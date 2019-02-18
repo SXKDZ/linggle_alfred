@@ -11,7 +11,7 @@ An Alfred 3 workflow for seaching collocations in [Linggle](https://linggle.com)
 ## Quick Start
 
 - Toggle by `lin <query>`.
-- Press `RETURN` to copy the results.
+- Press `↩` to copy the results.
 
 ## Snapshots
 

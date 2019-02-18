@@ -2,7 +2,7 @@ import sys
 import json
 import time
 import requests
-from workflow import Workflow
+from workflow import Workflow, ICON_WEB
 
 def main(wf):
     s = requests.Session()
@@ -30,10 +30,10 @@ def main(wf):
             )
         else:
             total = answer['total']
-            for item in answer['ngrams']:
+            for item in answer['ngrams'][:20]:
                 # print(item)
                 phrase = item[0]
-                subtitle = '{:.2f}%'.format(float(item[1]) * 100 / total) + ' | ' + str(item[1])
+                subtitle = '{:.2f}% | {}'.format(float(item[1]) * 100 / total, item[1])
                 wf.add_item(
                     title=phrase,
                     subtitle=subtitle,
@@ -48,6 +48,13 @@ def main(wf):
             valid=False,
             icon='icon.png'
         )
+    wf.add_item(
+        title='Visit Linggle',
+        subtitle='Open browser for Linggle',
+        icon=ICON_WEB,
+        valid=True,
+        arg='https://www.linggle.com'
+    )
     wf.send_feedback()
 
 if __name__ == '__main__':
