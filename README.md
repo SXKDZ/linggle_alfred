@@ -5,6 +5,8 @@ An Alfred 3 workflow for seaching collocations in [Linggle](https://linggle.com)
 ## Requirements
 
 - Alfred >= 3.8
+- Python 2.x
+- `requests`
 
 ## Quick Start
 
