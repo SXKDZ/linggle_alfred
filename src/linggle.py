@@ -21,7 +21,7 @@ def main(wf):
     }
     try:
         answer = s.post('https://www.linggle.com/query/', data=json.dumps(query_load), headers=headers).json()
-        if len(answer) == 0:
+        if len(answer['ngrams']) == 0:
             wf.add_item(
                 title='No Results',
                 subtitle='Modify your search',
@@ -29,7 +29,10 @@ def main(wf):
                 icon='icon.png'
             )
         else:
-            total = answer['total']
+            total = 0
+            for item in answer['ngrams']:
+                total += item[1]
+            
             for item in answer['ngrams'][:20]:
                 # print(item)
                 phrase = item[0]
@@ -43,7 +46,7 @@ def main(wf):
                 )
     except:
         wf.add_item(
-            title='Inquery Grammar Error',
+            title='Inquiry Error',
             subtitle='Modify your search',
             valid=False,
             icon='icon.png'
