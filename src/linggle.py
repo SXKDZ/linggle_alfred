@@ -6,21 +6,11 @@ from workflow import Workflow, ICON_WEB
 
 def main(wf):
     s = requests.Session()
-    r = s.get('https://www.linggle.com/')
 
-    headers = {
-        'X-CSRFToken': r.cookies['csrftoken'],
-        'Referer': 'https://www.linggle.com/',
-        'X-Requested-With': 'XMLHttpRequest'
-    }
-    
     query = wf.args[0]
-    query_load = {
-        'query': query,
-        'time': int(round(time.time() * 1000))
-    }
+    query_load = requests.utils.quote(query)
     try:
-        answer = s.post('https://www.linggle.com/query/', data=json.dumps(query_load), headers=headers).json()
+        answer = s.get('https://linggle.com/api/ngram/{}'.format(query_load)).json()
         if len(answer['ngrams']) == 0:
             wf.add_item(
                 title='No Results',
@@ -34,7 +24,6 @@ def main(wf):
                 total += item[1]
             
             for item in answer['ngrams'][:20]:
-                # print(item)
                 phrase = item[0]
                 subtitle = '{:.2f}% | {}'.format(float(item[1]) * 100 / total, item[1])
                 wf.add_item(
@@ -56,7 +45,7 @@ def main(wf):
         subtitle='Open browser for Linggle',
         icon=ICON_WEB,
         valid=True,
-        arg='https://www.linggle.com'
+        arg='https://linggle.com/?q={}'.format(query_load)
     )
     wf.send_feedback()
 

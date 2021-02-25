@@ -12,11 +12,26 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>5E1FACD5-59E8-4FB2-9969-7DC53462AF90</string>
+				<string>4C7BCA08-E83D-46CD-A019-6B547E9E188D</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>4C7BCA08-E83D-46CD-A019-6B547E9E188D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A3349239-1B3D-4251-B06B-FA08DC93D821</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>BE62F4C5-342A-401E-BC91-755F2084CE3C</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -30,13 +45,18 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+		</array>
+		<key>5E1FACD5-59E8-4FB2-9969-7DC53462AF90</key>
+		<array/>
+		<key>E9359454-1A8F-475D-AF7B-66EAB5CBAAB0</key>
+		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>B920DB7A-C4C1-4E74-8D78-07A016D66C15</string>
+				<string>5E1FACD5-59E8-4FB2-9969-7DC53462AF90</string>
 				<key>modifiers</key>
-				<integer>1048576</integer>
+				<integer>0</integer>
 				<key>modifiersubtext</key>
-				<string>hit RET to copy to front most app</string>
+				<string></string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -55,21 +75,19 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
 				<string>{query}</string>
-				<key>title</key>
-				<string>Copied to Clipboard</string>
+				<key>utf8</key>
+				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
-			<string>5E1FACD5-59E8-4FB2-9969-7DC53462AF90</string>
+			<string>A3349239-1B3D-4251-B06B-FA08DC93D821</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -80,6 +98,8 @@
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -118,7 +138,58 @@
 			<key>uid</key>
 			<string>0B3C3531-021F-4008-9760-04C866481BE1</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>4</integer>
+						<key>matchstring</key>
+						<string>^https:\/\/linggle\.com\/\?q=.+</string>
+						<key>outputlabel</key>
+						<string></string>
+						<key>uid</key>
+						<string>BE62F4C5-342A-401E-BC91-755F2084CE3C</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>else</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>4C7BCA08-E83D-46CD-A019-6B547E9E188D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Copied to Clipboard</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>5E1FACD5-59E8-4FB2-9969-7DC53462AF90</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -127,6 +198,8 @@
 				<false/>
 				<key>clipboardtext</key>
 				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
 				<key>transient</key>
 				<false/>
 			</dict>
@@ -135,24 +208,7 @@
 			<key>uid</key>
 			<string>E9359454-1A8F-475D-AF7B-66EAB5CBAAB0</string>
 			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>autopaste</key>
-				<true/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-				<key>transient</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>B920DB7A-C4C1-4E74-8D78-07A016D66C15</string>
-			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -162,32 +218,43 @@
 		<key>0B3C3531-021F-4008-9760-04C866481BE1</key>
 		<dict>
 			<key>xpos</key>
-			<integer>260</integer>
+			<integer>35</integer>
 			<key>ypos</key>
-			<integer>180</integer>
+			<integer>150</integer>
+		</dict>
+		<key>4C7BCA08-E83D-46CD-A019-6B547E9E188D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>240</integer>
+			<key>ypos</key>
+			<integer>170</integer>
 		</dict>
 		<key>5E1FACD5-59E8-4FB2-9969-7DC53462AF90</key>
 		<dict>
 			<key>xpos</key>
-			<integer>770</integer>
+			<integer>565</integer>
 			<key>ypos</key>
-			<integer>50</integer>
+			<integer>290</integer>
 		</dict>
-		<key>B920DB7A-C4C1-4E74-8D78-07A016D66C15</key>
+		<key>A3349239-1B3D-4251-B06B-FA08DC93D821</key>
 		<dict>
 			<key>xpos</key>
-			<integer>770</integer>
+			<integer>370</integer>
 			<key>ypos</key>
-			<integer>350</integer>
+			<integer>10</integer>
 		</dict>
 		<key>E9359454-1A8F-475D-AF7B-66EAB5CBAAB0</key>
 		<dict>
 			<key>xpos</key>
-			<integer>770</integer>
+			<integer>370</integer>
 			<key>ypos</key>
-			<integer>180</integer>
+			<integer>290</integer>
 		</dict>
 	</dict>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string></string>
 	<key>webaddress</key>
 	<string>sxkdz.github.io</string>
 </dict>
