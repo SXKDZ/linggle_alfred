@@ -10,7 +10,7 @@ def main(wf):
     query = wf.args[0]
     query_load = requests.utils.quote(query)
     try:
-        answer = s.get('https://linggle.com/api/ngram/{}'.format(query_load)).json()
+        answer = s.get('https://search.linggle.com/api/ngram/{}'.format(query_load)).json()
         if len(answer['ngrams']) == 0:
             wf.add_item(
                 title='No Results',
@@ -22,7 +22,7 @@ def main(wf):
             total = 0
             for item in answer['ngrams']:
                 total += item[1]
-            
+
             for item in answer['ngrams'][:20]:
                 phrase = item[0]
                 subtitle = '{:.2f}% | {}'.format(float(item[1]) * 100 / total, item[1])
@@ -45,7 +45,7 @@ def main(wf):
         subtitle='Open browser for Linggle',
         icon=ICON_WEB,
         valid=True,
-        arg='https://linggle.com/?q={}'.format(query_load)
+        arg='https://search.linggle.com/?q={}'.format(query_load)
     )
     wf.send_feedback()
 
